@@ -9,6 +9,7 @@ Console.WriteLine("Hello, World!");
 const string SUBSCRIPTION_ID = "0c530e83-2bf4-40f0-902f-f897f0e2cd7e";
 const string RESOURCE_NAME = "aml-dev-dev01";
 const string AML_WORKSPACE_NAME = "aml-ml-poc-dev01";
+const string ENVIRONMENT_NAME = "envpoc";
 
 ArmClient armClient = new ArmClient(new DefaultAzureCredential());
 //SubscriptionResource subscription = await armClient.GetDefaultSubscriptionAsync();
@@ -42,5 +43,14 @@ else
 Console.WriteLine($"workspace id = {workspace.Id}");
 var job = await workspace.GetMachineLearningJobAsync("cmdpoc2-2024-0407-1531");
 Console.WriteLine($"job name = {job.Value.Id}");
+Console.WriteLine($"job status = {job.Value.Data.Properties.Status}");
+
+
+var envid = $"{workspace.Id}/environments/{ENVIRONMENT_NAME}";
+var id = new ResourceIdentifier(envid);
+MachineLearningEnvironmentContainerResource environmentContainerResource = armClient.GetMachineLearningEnvironmentContainerResource(id);
+MachineLearningEnvironmentVersionResource environmentVersionResource = environmentContainerResource.GetMachineLearningEnvironmentVersions().First();
+Console.WriteLine($"env version id = {environmentVersionResource.Id}");
+
 //MachineLearningWorkspaceResource workspace = await resourceGroup.GetMachineLearningWorkspaces().GetAsync("aml-ml-poc-dev01");
 //var resourceGroup = await ResourceGroupOperations.CreateResourceGroup(armClient, Constants.ResourceGroupName);
