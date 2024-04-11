@@ -3,7 +3,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.9.34701.34
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AzureMLSDK", "AzureMLSDK\AzureMLSDK.csproj", "{407C22B3-8827-4148-8934-084750467CC4}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AzureMLSDK", "AzureMLSDK\AzureMLSDK.csproj", "{407C22B3-8827-4148-8934-084750467CC4}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "scriptinCsharp", "scriptinCsharp\scriptinCsharp.csproj", "{340D676E-74AE-4675-85A8-5C10A270D932}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,6 +17,10 @@ Global
 		{407C22B3-8827-4148-8934-084750467CC4}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{407C22B3-8827-4148-8934-084750467CC4}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{407C22B3-8827-4148-8934-084750467CC4}.Release|Any CPU.Build.0 = Release|Any CPU
+		{340D676E-74AE-4675-85A8-5C10A270D932}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{340D676E-74AE-4675-85A8-5C10A270D932}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{340D676E-74AE-4675-85A8-5C10A270D932}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{340D676E-74AE-4675-85A8-5C10A270D932}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

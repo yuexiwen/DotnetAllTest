@@ -19,8 +19,6 @@ new Thread(() =>
     Console.WriteLine(output);
 }).Start();
 
-var task = await new Task(() => Thread.Sleep(1000)).Start();
-
 for (int i = 0; i < 100; i++)
 {
     Console.WriteLine(i);
