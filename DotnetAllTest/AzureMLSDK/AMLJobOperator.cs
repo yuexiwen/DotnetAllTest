@@ -177,7 +177,7 @@ namespace AzureMLSDK
             };
 
             MachineLearningJobData commandJobData = new MachineLearningJobData(commandjob);
-            ArmOperation<MachineLearningJobResource> jobOperation = await this.AMLWorkspace.GetMachineLearningJobs().CreateOrUpdateAsync(WaitUntil.Completed, amlJobName, commandJobData);
+            ArmOperation<MachineLearningJobResource> jobOperation = this.AMLWorkspace.GetMachineLearningJobs().CreateOrUpdate(WaitUntil.Completed, amlJobName, commandJobData);
             MachineLearningJobResource jobResource = jobOperation.Value; 
             Console.WriteLine($"JobCreateOrUpdateOperation {jobResource.Data.Id} created.");
         }
