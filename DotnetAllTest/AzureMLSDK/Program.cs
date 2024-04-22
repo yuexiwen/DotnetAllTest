@@ -8,11 +8,11 @@ const string AML_WORKSPACE_NAME = "aml1-ml-poc-dev01";
 const string ENVIRONMENT_NAME = "envpoc";
 const string ENVIRONMENT_VERSION = "1";
 const string CODE_URI = "https://aml1samlstodev01.blob.core.windows.net/training-code/";
-const string CODE_VERSION = "2";
+const string CODE_VERSION = "1";
 const string CODE_ASSET_NAME = "python_code";
 const string COMPUTE_NAME = "computepoc";
 const string COMMAND = "python Training2.py";
-const string JOB_NAME = "xiwentestjob-2024-1637";
+const string JOB_NAME = "xiwentestjob-2024-0415-1603";
 
 AMLJobOperator aMLJobOperator = new();
 aMLJobOperator.subscriptionId = SUBSCRIPTION_ID;
