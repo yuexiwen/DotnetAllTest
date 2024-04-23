@@ -2,8 +2,22 @@
 
 namespace CosmosWideTablePoc
 {
-    internal class ConnectionStartEntity(UUIDGenerator generator) : UUIDConsumer(generator), DataGenerator
+    internal class ConnectionStartEntity(UUIDGenerator generator, CosmosConnect connect) : UUIDConsumer(generator), DataGenerator
     {
+        public record Schema(
+            string id,
+            string State,
+            string ClientOS,
+            string ClientType,
+            string PlatformName,
+            string PlatformVersion,
+            string PredecessorConnectionId,
+            string ResourceType,
+            string ResourceAlias,
+            string SessionHostName,
+            string SessionHostPoolType
+            );
+
         private List<string> StateLst { get; set; } = [];
 
         private List<string> ClientOSLst { get; set; } = [];
@@ -30,22 +44,63 @@ namespace CosmosWideTablePoc
 
         public List<List<PatchOperation>> OperatorList { get; set; } = [];
 
-        public List<string> DocmentList { get; set; } = [];
+        public List<Schema> DocmentList { get; set; } = [];
+
+        public CosmosConnect Connect { get; set; } = connect;
 
         public override void ComsumeAction()
         {
             this.PrimaryKeyList = this.UUIDLst;
+            this.RandomGenerateField();
+            this.OperationGenerate();
             this.DocumentGenerate();
-            Console.WriteLine("==================================================================");
-            for (int i = 0; i < this.PrimaryKeyList.Count; ++i)
-            {
-                Console.WriteLine($"{this.PrimaryKeyList[i]} | {this.StateLst[i]} | {this.ClientOSLst[i]} | {this.ClientVersion[i]} | {this.ClientType[i]}" +
-                    $"| {this.PlatformName[i]} | {this.PlatformVersion[i]} | {this.PredecessorConnectionId[i]}" +
-                    $"| {this.ResourceType[i]} | {this.ResourceAlias[i]} | {this.SessionHostName[i]} | {this.SessionHostPoolType[i]}");
-            }
+            _ = this.Connect.CreateOrUpdateItem<Schema>(this.PrimaryKeyList, this.DocmentList, this.OperatorList);
         }
 
         public void DocumentGenerate()
+        {
+            this.DocmentList.Clear();
+            for (int i = 0; i < this.PrimaryKeyList.Count; i++)
+            {
+                this.DocmentList.Add(new Schema(
+                    id : this.PrimaryKeyList[i],
+                    State : this.StateLst[i],
+                    ClientOS : this.ClientOSLst[i],
+                    ClientType : this.ClientType[i],
+                    PlatformName : this.PlatformName[i],
+                    PlatformVersion : this.PlatformVersion[i],
+                    PredecessorConnectionId : this.PredecessorConnectionId[i],
+                    ResourceType : this.ResourceType[i],
+                    ResourceAlias : this.ResourceAlias[i],
+                    SessionHostName : this.SessionHostName[i],
+                    SessionHostPoolType : this.SessionHostPoolType[i]
+                    ));
+            }
+        }
+
+        public void OperationGenerate()
+        {
+            this.OperatorList.Clear();
+            for (int i = 0; i <  this.PrimaryKeyList.Count; i++)
+            {
+                this.OperatorList.Add(
+                [
+                    PatchOperation.Set("/Status", this.StateLst[i]),
+                    PatchOperation.Set("/ClientOS", this.ClientOSLst[i]),
+                    PatchOperation.Set("/ClientVersion", this.ClientVersion[i]),
+                    PatchOperation.Set("/ClientType", this.ClientType[i]),
+                    PatchOperation.Set("/PlatformName", this.PlatformName[i]),
+                    PatchOperation.Set("/PlatformVersion", this.PlatformVersion[i]),
+                    PatchOperation.Set("/PredecessorConnectionId", this.PredecessorConnectionId[i]),
+                    PatchOperation.Set("/ResourceType", this.ResourceType[i]),
+                    PatchOperation.Set("/ResourceAlias", this.ResourceAlias[i]),
+                    PatchOperation.Set("/SessionHostName", this.SessionHostName[i]),
+                    PatchOperation.Set("/SessionHostPoolType", this.SessionHostPoolType[i]),
+                ]);
+            }
+        }
+
+        public void RandomGenerateField()
         {
             this.StateLst.Clear();
             this.ClientOSLst.Clear();
@@ -72,33 +127,6 @@ namespace CosmosWideTablePoc
                 this.SessionHostName.Add("SHN_" + DataGenerator.GenerateRandomString(5));
                 this.SessionHostPoolType.Add("SHP_" + DataGenerator.GenerateRandomString(5));
             }
-        }
-
-        public void OperationGenerate()
-        {
-            this.OperatorList.Clear();
-            for (int i = 0; i <  this.PrimaryKeyList.Count; i++)
-            {
-                this.OperatorList[i] =
-                [
-                    PatchOperation.Set("/Status", this.StateLst[i]),
-                    PatchOperation.Set("/ClientOS", this.ClientOSLst[i]),
-                    PatchOperation.Set("/ClientVersion", this.ClientVersion[i]),
-                    PatchOperation.Set("/ClientType", this.ClientType[i]),
-                    PatchOperation.Set("/PlatformName", this.PlatformName[i]),
-                    PatchOperation.Set("/PlatformVersion", this.PlatformVersion[i]),
-                    PatchOperation.Set("/PredecessorConnectionId", this.PredecessorConnectionId[i]),
-                    PatchOperation.Set("/ResourceType", this.ResourceType[i]),
-                    PatchOperation.Set("/ResourceAlias", this.ResourceAlias[i]),
-                    PatchOperation.Set("/SessionHostName", this.SessionHostName[i]),
-                    PatchOperation.Set("/SessionHostPoolType", this.SessionHostPoolType[i]),
-                ];
-            }
-        }
-
-        public void RandomGenerateField()
-        {
-            throw new NotImplementedException();
         }
     }
 }

@@ -2,12 +2,6 @@
 {
     internal interface DataGenerator
     {
-        public abstract List<string> PrimaryKeyList { get; set; }
-
-        public abstract List<string> OperatorList { get; set; }
-
-        public abstract List<string> DocmentList { get; set; }
-
         public abstract void RandomGenerateField();
 
         public abstract void OperationGenerate();

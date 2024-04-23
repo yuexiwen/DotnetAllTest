@@ -18,6 +18,7 @@
         {
             UUIDLst = Generator.FetchIds();
             ComsumeAction();
+            Console.WriteLine("current action over!");
         }
 
         public abstract void ComsumeAction();
