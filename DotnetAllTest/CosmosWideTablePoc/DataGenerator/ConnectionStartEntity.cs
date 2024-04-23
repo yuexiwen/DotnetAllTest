@@ -14,8 +14,7 @@ namespace CosmosWideTablePoc
             string PredecessorConnectionId,
             string ResourceType,
             string ResourceAlias,
-            string SessionHostName,
-            string SessionHostPoolType
+            string SessionHostName
             );
 
         private List<string> StateLst { get; set; } = [];
@@ -48,13 +47,14 @@ namespace CosmosWideTablePoc
 
         public CosmosConnect Connect { get; set; } = connect;
 
-        public override void ComsumeAction()
+        public override async void ComsumeAction()
         {
             this.PrimaryKeyList = this.UUIDLst;
             this.RandomGenerateField();
             this.OperationGenerate();
             this.DocumentGenerate();
-            _ = this.Connect.CreateOrUpdateItem<Schema>(this.PrimaryKeyList, this.DocmentList, this.OperatorList);
+            await this.Connect.CreateOrUpdateItem<Schema>(this.PrimaryKeyList, this.DocmentList, this.OperatorList);
+            Console.WriteLine("connect batch process complete!");
         }
 
         public void DocumentGenerate()
@@ -72,8 +72,7 @@ namespace CosmosWideTablePoc
                     PredecessorConnectionId : this.PredecessorConnectionId[i],
                     ResourceType : this.ResourceType[i],
                     ResourceAlias : this.ResourceAlias[i],
-                    SessionHostName : this.SessionHostName[i],
-                    SessionHostPoolType : this.SessionHostPoolType[i]
+                    SessionHostName : this.SessionHostName[i]
                     ));
             }
         }
@@ -94,8 +93,7 @@ namespace CosmosWideTablePoc
                     PatchOperation.Set("/PredecessorConnectionId", this.PredecessorConnectionId[i]),
                     PatchOperation.Set("/ResourceType", this.ResourceType[i]),
                     PatchOperation.Set("/ResourceAlias", this.ResourceAlias[i]),
-                    PatchOperation.Set("/SessionHostName", this.SessionHostName[i]),
-                    PatchOperation.Set("/SessionHostPoolType", this.SessionHostPoolType[i]),
+                    PatchOperation.Set("/SessionHostName", this.SessionHostName[i])
                 ]);
             }
         }

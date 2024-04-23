@@ -42,8 +42,7 @@
                 try
                 {
                     ItemResponse<T> responseMessage = await container.ReadItemAsync<T>(docid[i], new PartitionKey(docid[i]));
-                    Console.WriteLine($"check over response code = {responseMessage.StatusCode}");
-                    _ = container.PatchItemAsync<T>(docid[i], new PartitionKey(docid[i]), operations[i]);
+                    await container.PatchItemAsync<T>(docid[i], new PartitionKey(docid[i]), operations[i]);
                 }
                 catch (Exception)
                 {
@@ -53,7 +52,6 @@
                     }
                     catch (Exception)
                     {
-                        _ = container.PatchItemAsync<T>(docid[i], new PartitionKey(docid[i]), operations[i]);
                     }
                 }
             }
