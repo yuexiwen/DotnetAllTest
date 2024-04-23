@@ -1,19 +1,9 @@
 ﻿using CosmosWideTablePoc;
 
-Console.WriteLine("Hello, World!");
-
 var generator = new UUIDGenerator(10);
+var consumer = new ConnectionStartEntity(generator);
 generator.StartTask(10000);
+consumer.StartTask(5000);
 
 
-while (true)
-{
-    var lst = generator.FetchIds();
-    Console.WriteLine("======================");
-    foreach (var item in lst)
-    {
-        Console.WriteLine(item);
-    }
-    Thread.Sleep(5000);
-}
-
+while (true) { }

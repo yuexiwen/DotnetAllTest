@@ -8,18 +8,18 @@
 
         public void RunTask()
         {
-            while(true)
+            while (true)
             {
-                this.Action();
-                Thread.Sleep(this.SleepTime);
+                Action();
+                Thread.Sleep(SleepTime);
             }
         }
 
         public void StartTask(int sleepTime = 10000)
         {
-            this.SleepTime = sleepTime;
+            SleepTime = sleepTime;
             Console.WriteLine("start task");
-            Task.Run(() => this.RunTask());
+            Task.Run(() => RunTask());
         }
     }
 }
