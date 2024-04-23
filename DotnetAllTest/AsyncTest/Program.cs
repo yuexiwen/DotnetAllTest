@@ -27,6 +27,18 @@ Console.WriteLine("hello");
 task.wait();
 Console.WriteLine("world");
 */
+var task4 = TaskAsyncTest.IterAsync1();
+Console.WriteLine("now start task4");
+var task5 = TaskAsyncTest.IterAsync2();
+Console.WriteLine("now start task5");
+TaskAsyncTest.IterAsync3();
+Console.WriteLine("now start task6");
+Console.WriteLine("task 6 complete");
+await task5;
+Console.WriteLine("task 5 complete");
+await task4;
+Console.WriteLine("task 4 complete");
+
 
 var task1 = TaskAsyncTest.TestFunc1Async();
 var task2 = TaskAsyncTest.TestFunc2Async();
@@ -38,3 +50,5 @@ Console.WriteLine("------------------------");
 await task3;
 var value = task1.Result;
 Console.WriteLine(value);
+
+
