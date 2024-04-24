@@ -11,7 +11,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AsyncTest", "AsyncTest\Asyn
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CosmosWideTablePoc", "CosmosWideTablePoc\CosmosWideTablePoc.csproj", "{640642F8-A567-4908-B207-5DC25DDAA0D5}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RegexTest", "RegexTest\RegexTest.csproj", "{1EEA297E-F505-4F50-94ED-6C36345F70E0}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "RegexTest", "RegexTest\RegexTest.csproj", "{1EEA297E-F505-4F50-94ED-6C36345F70E0}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "KustoTest", "KustoTest\KustoTest.csproj", "{948EEBB6-6EE1-451E-8FDF-E40E7B2A876C}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -39,6 +41,10 @@ Global
 		{1EEA297E-F505-4F50-94ED-6C36345F70E0}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{1EEA297E-F505-4F50-94ED-6C36345F70E0}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{1EEA297E-F505-4F50-94ED-6C36345F70E0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{948EEBB6-6EE1-451E-8FDF-E40E7B2A876C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{948EEBB6-6EE1-451E-8FDF-E40E7B2A876C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{948EEBB6-6EE1-451E-8FDF-E40E7B2A876C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{948EEBB6-6EE1-451E-8FDF-E40E7B2A876C}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
