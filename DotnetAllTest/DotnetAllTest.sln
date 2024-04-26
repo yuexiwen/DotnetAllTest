@@ -13,7 +13,12 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CosmosWideTablePoc", "Cosmo
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "RegexTest", "RegexTest\RegexTest.csproj", "{1EEA297E-F505-4F50-94ED-6C36345F70E0}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "KustoTest", "KustoTest\KustoTest.csproj", "{948EEBB6-6EE1-451E-8FDF-E40E7B2A876C}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "KustoTest", "KustoTest\KustoTest.csproj", "{948EEBB6-6EE1-451E-8FDF-E40E7B2A876C}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{364718AE-AC9B-49E5-B435-FD9E97DF5DB0}"
+	ProjectSection(SolutionItems) = preProject
+		.editorconfig = .editorconfig
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

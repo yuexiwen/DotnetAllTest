@@ -1,4 +1,5 @@
 ﻿// See https://aka.ms/new-console-template for more information
+/*
 using Kusto.Data;
 using Kusto.Data.Net.Client;
 
@@ -22,4 +23,8 @@ using (var response = kustoclient.ExecuteQuery(databaseName, query1, null))
         Console.WriteLine(functionName);
     }
 }
+*/
 
+using KustoTest.ADXConnection;
+
+ADXConnection adxConnection = new("https://cpccradxingestint01.eastus.kusto.windows.net", "Report", 30);
