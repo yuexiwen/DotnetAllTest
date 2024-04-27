@@ -2,6 +2,7 @@
 {
     using Newtonsoft.Json;
     using System.Data;
+    using System.Runtime.ExceptionServices;
 
     public class ADXQueryResultWithSummary
     {
@@ -31,9 +32,37 @@
                 {
                     this.TotalQueryRowsResult = -1;
                 }
+
+                this.PopulateColumns(dataReader);
+                this.PopulateRows(dataReader);
             }
         }
 
+        private void PopulateRows(IDataReader dataReader)
+        {
+            this.RowValues = new List<List<object>>();
+            while (dataReader.Read())
+            {
+                List<object> row = new List<object>();
+
+                for (int i = 0; i < dataReader.FieldCount; i++)
+                {
+                    row.Add(dataReader.GetValue(i));
+                }
+
+                this.RowValues.Add(row);
+            }
+        }
+
+        private void PopulateColumns(IDataReader dataReader)
+        {
+            this.Columns = new List<KustoResultColumn>();
+
+            for (int i = 0; i < dataReader.FieldCount; i++)
+            {
+                this.Columns.Add(new KustoResultColumn(dataReader.GetName(i), dataReader.GetDataTypeName(i)));
+            }
+        }
 
         public class DataBaseCursor
         {

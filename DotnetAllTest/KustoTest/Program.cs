@@ -27,4 +27,24 @@ using (var response = kustoclient.ExecuteQuery(databaseName, query1, null))
 
 using KustoTest.ADXConnection;
 
-ADXConnection adxConnection = new("https://cpccradxingestint01.eastus.kusto.windows.net", "Report", 30);
+var clusterUri = "https://cpccradxingestint01.eastus.kusto.windows.net";
+var databaseName = "Report";
+var query = "UpdatePolicy_autodenormalizationcomwrksdeviceuser_workspaceentity | take 10";
+
+ADXConnection adxConnection = new(clusterUri, databaseName, 30);
+
+string clientRequestId = "test_request_id";
+
+var data = await adxConnection.ExecuteQuery(query, false, clientRequestId, false, 2, 2000, 10000);
+
+do
+{
+    while (data.Read())
+    {
+        for (int i = 0; i < data.FieldCount; i++)
+        {
+            Console.WriteLine($"index = {i} | name = {data.GetName(i)} | value = {data.GetValue(i)}");
+        }
+    }
+    Console.WriteLine("-----------------------------------------");
+} while (data.NextResult());
