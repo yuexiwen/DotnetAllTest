@@ -27,6 +27,7 @@ Console.WriteLine("hello");
 task.wait();
 Console.WriteLine("world");
 */
+/*
 var task4 = TaskAsyncTest.IterAsync1();
 Console.WriteLine("now start task4");
 var task5 = TaskAsyncTest.IterAsync2();
@@ -50,5 +51,8 @@ Console.WriteLine("------------------------");
 await task3;
 var value = task1.Result;
 Console.WriteLine(value);
+*/
 
-
+var task = TaskWhenTest.isTaskExpiration(10001);
+var result = await task;
+Console.WriteLine(result);
