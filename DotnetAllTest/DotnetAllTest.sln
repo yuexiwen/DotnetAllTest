@@ -23,6 +23,7 @@ EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Logger", "Logger\Logger.csproj", "{F65679BA-C608-4A6D-9A25-A2CC93C8ECA4}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DemicalTest", "DemicalTest\DemicalTest.csproj", "{DA22BB76-06C8-4934-8869-17E64D23846D}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Logger", "Logger\Logger.csproj", "{43D7B8A6-AABF-4A66-B507-3362BFF55186}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -62,6 +63,10 @@ Global
 		{DA22BB76-06C8-4934-8869-17E64D23846D}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{DA22BB76-06C8-4934-8869-17E64D23846D}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{DA22BB76-06C8-4934-8869-17E64D23846D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{43D7B8A6-AABF-4A66-B507-3362BFF55186}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{43D7B8A6-AABF-4A66-B507-3362BFF55186}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{43D7B8A6-AABF-4A66-B507-3362BFF55186}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{43D7B8A6-AABF-4A66-B507-3362BFF55186}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

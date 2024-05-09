@@ -2,10 +2,12 @@
 namespace Logger.DefaultImpl
 {
     using Logger.Interfaces;
-    using System.Collections.Generic;
 
-    public class ConsoleMetric
+    public class ConsoleMetric : IMeasureMetric
     {
-        
+        public bool LogValue(long rawData, params string[] dimensionValues)
+        {
+            return true;
+        }
     }
 }

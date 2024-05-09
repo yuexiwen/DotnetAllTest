@@ -65,7 +65,7 @@ namespace Logger.DefaultImpl
                 columns = new KeyValuePair<string, string>[0];
             }
 
-            Console.WriteLine($"************************** ComponentName: {componentName}, EventUniqueName: {eventUniqueName}, SeverityLevel: {severityLevel}, activityId: {this.activityId}, Values: {string.Join("\r\n\t\t", columns.Select(x => x.Key + ':' + x.Value))}{ex}");
+            Console.WriteLine($"ComponentName: {componentName}\nEventUniqueName: {eventUniqueName}\nSeverityLevel: {severityLevel}\nactivityId: {this.activityId}\nValues: {string.Join("\r\n\t\t", columns.Select(x => x.Key + ':' + x.Value))}{ex}");
             Console.WriteLine();
         }
     }
