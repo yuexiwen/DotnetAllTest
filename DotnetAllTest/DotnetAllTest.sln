@@ -24,6 +24,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Logger", "Logger\Logger.csp
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DemicalTest", "DemicalTest\DemicalTest.csproj", "{DA22BB76-06C8-4934-8869-17E64D23846D}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DeltaLakeSingletonTest", "DeltaLakeSingletonTest\DeltaLakeSingletonTest.csproj", "{C9B4E1FE-2E0C-4FA4-9A4B-481A4C8DAB12}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -62,6 +64,10 @@ Global
 		{DA22BB76-06C8-4934-8869-17E64D23846D}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{DA22BB76-06C8-4934-8869-17E64D23846D}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{DA22BB76-06C8-4934-8869-17E64D23846D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C9B4E1FE-2E0C-4FA4-9A4B-481A4C8DAB12}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C9B4E1FE-2E0C-4FA4-9A4B-481A4C8DAB12}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C9B4E1FE-2E0C-4FA4-9A4B-481A4C8DAB12}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C9B4E1FE-2E0C-4FA4-9A4B-481A4C8DAB12}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
