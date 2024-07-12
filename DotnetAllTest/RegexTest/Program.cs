@@ -10,6 +10,7 @@ MatchCollection matches = regex.Matches(query.Trim());
 
 foreach (Match item in matches)
 {
+    Console.WriteLine(item.Value);
     var tmp1 = item.Value.Trim(']', '[').Trim();
     string[] searchStringFields = tmp1.Split('|');
     Console.WriteLine(searchStringFields[0]);

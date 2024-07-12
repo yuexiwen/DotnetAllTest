@@ -28,3 +28,8 @@ foreach (var culturePair in ValueCultureDict)
     }
     Console.WriteLine($"   key  = {culturePair.Key} | value = {cultures}\n\n");
 }
+
+
+
+var test = Convert.ToDouble("1,1");
+Console.WriteLine($"test = {test}");
